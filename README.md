@@ -1,35 +1,34 @@
-# 🎧 PacketMuse — Decode. Compose. Capture.
+# PacketMuse 🔍
 
-> *A musa inspiradora da análise de rede. PacketMuse é uma coleção hacker-poética de scripts para capturar, decifrar e entender o tráfego da rede em tempo real — com estilo e precisão.*
+Ferramenta para extração de credenciais HTTP/FTP de arquivos `.pcapng`.
 
-![Status](https://img.shields.io/badge/status-in_progress-blueviolet)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Built with](https://img.shields.io/badge/built%20with-TShark%20%7C%20Wireshark%20%7C%20Tcpdump-informational)
-![Vibe](https://img.shields.io/badge/vibe-hacker_conceitual-%23ff00ff)
-
----
-
-## 🧠 Sobre o Projeto
-
-**PacketMuse** nasceu da fusão entre a arte de observar pacotes e a técnica de automatizar capturas.  
-Ela transforma tráfego de rede em conhecimento e descobertas.
-
-Com ela, você pode:
-- Capturar tráfego HTTP, DNS, FTP ou tudo ao mesmo tempo
-- Automatizar análises com TShark
-- Exportar pacotes para Wireshark
-- Explorar os pacotes com filtros prontos
-
----
+## 🚀 Como Usar
+```bash
+./PacketMuse-Harvester.sh arquivo_captura.pcapng
+```
+Saída: `credenciais_<data>.txt`
 
 ## 📦 Requisitos
+- Kali Linux (ou distro com `tshark`)
+- Wireshark/TShark instalado:
+  ```bash
+  sudo apt install tshark
+  ```
 
-Este projeto foi testado em:
-- **Kali Linux** (recomendado)
-- Ubuntu, Debian
-- WSL2 com acesso à rede
+## ✨ Features
+- Extrai:
+  - HTTP (POST): URLs, parâmetros, timestamps
+  - FTP: Comandos USER/PASS
+- Saída formatada em texto claro
 
-Instale as ferramentas:
-```bash
-sudo apt update
-sudo apt install tshark wireshark tcpdump -y
+## 📌 Exemplo de Saída
+```
+=== CREDENCIAIS HTTP ===
+Hora: Jun 16, 2025 10:30:00 
+Origem: 192.168.1.100 | Destino: 10.0.0.1 
+Host: example.com 
+URI: /login.php?user=admin&pass=123
+```
+
+## 📄 Licença
+GPLv3 - Veja [LICENSE](LICENSE).
